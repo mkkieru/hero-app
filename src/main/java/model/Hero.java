@@ -4,15 +4,15 @@ import java.security.PrivateKey;
 import java.util.ArrayList;
 import java.util.List;
 
-public class hero {
+public class Hero {
 
     private String name;
     private Integer age;
     private String specialPower;
     private String weakness;
-    private static List<hero> instances = new ArrayList<>();
+    private static ArrayList<Hero> instances = new ArrayList<>();
 
-    public hero(String name, Integer age, String specialPower, String weakness){
+    public Hero(String name, Integer age, String specialPower, String weakness){
         this.name = name;
         this.specialPower = specialPower;
         this.weakness = weakness;
@@ -36,7 +36,7 @@ public class hero {
         return weakness;
     }
 
-    public static List<hero> getInstances() {
+    public static ArrayList<Hero> getAll() {
         return instances;
     }
 }
