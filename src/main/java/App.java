@@ -31,8 +31,8 @@ public class App {
             String name = req.queryParams("name");
             String stringAge = req.queryParams("age");
             Integer age = Integer.parseInt(stringAge);
-            String specialPower = req.queryParams("name");
-            String weakness = req.queryParams("name");
+            String specialPower = req.queryParams("specialPower");
+            String weakness = req.queryParams("weakness");
             Hero newHero = new Hero(name,age,specialPower,weakness);
             res.redirect("/");
             return null;
