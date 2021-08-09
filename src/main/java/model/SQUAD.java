@@ -30,7 +30,6 @@ public class SQUAD {
                     showMessageDialog(null, "This Hero is in another squad");
                     check = true;
 
-
                 }else {
                     instances.get(i).heros.add(hero);
                     showMessageDialog(null, "The Hero has been added");
