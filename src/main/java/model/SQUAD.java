@@ -5,15 +5,16 @@ import java.util.ArrayList;
 public class SQUAD {
 
     private static ArrayList<SQUAD> instances =new ArrayList<>();
-    private ArrayList<Hero> heros = new ArrayList<>();
+    private  ArrayList<Hero> heros = new ArrayList<>();
     private String squadName;
     private Hero hero;
     private Integer id;
     private boolean check = false;
+    private boolean checkHero = false;
+    private int instance ;
 
-    public String getSquadName() {
-        return squadName;
-    }
+
+
 
     public SQUAD(String squadName, Hero hero) {
         this.squadName = squadName;
@@ -24,29 +25,39 @@ public class SQUAD {
 
             //if squad entered is existent in instances
             if (instances.get(i).squadName.equals(squadName)) {//squad1
+                check = true;
+                instance = i;
 
-                //if the entered hero exists in any squad
-                if (instances.get(i).hero.getName().equals(hero.getName())){
-                    showMessageDialog(null, "This Hero is in another squad");
-                    check = true;
+                for (int x = 0; x < instances.get(i).heros.size(); x++) {
 
-                }else {
-                    instances.get(i).heros.add(hero);
-                    showMessageDialog(null, "The Hero has been added");
-                    check = true;
+                    if (instances.get(i).heros.get(x).getName().equals(hero.getName())) {
+
+                        showMessageDialog(null, "This Hero is in another squad");
+                        checkHero = true;
+                        break;
+                    }
                 }
                 break;
             }
         }
         if (!check){
             instances.add(this);
-            showMessageDialog(null, "The Hero has been added to the new squad");
+            showMessageDialog(null, "The Squad has been created with the new hero");
+        }
+        if (!checkHero){
+            instances.get(instance).heros.add(hero);
+            showMessageDialog(null, "The hero has ben added to the squad");
 
         }
     }
+    //showMessageDialog(null, "The Hero has been added to the new squad");
+
 
     public static ArrayList<SQUAD> getAll() {
         return instances;
     }
 
+    public ArrayList<Hero> getHeros() {
+        return heros;
+    }
 }
