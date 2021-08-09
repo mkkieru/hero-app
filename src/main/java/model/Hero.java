@@ -1,5 +1,7 @@
 package model;
 import java.util.ArrayList;
+import static javax.swing.JOptionPane.showMessageDialog;
+
 public class Hero {
 
     private String name;
@@ -7,6 +9,7 @@ public class Hero {
     private String specialPower;
     private String weakness;
     private String yourSquad;
+    private boolean check = false;
 
     private static ArrayList<Hero> instances = new ArrayList<>();
 
@@ -16,7 +19,16 @@ public class Hero {
         this.weakness = weakness;
         this.age = age;
         this.yourSquad = yourSquad;
-        instances.add(this);
+
+        for (int i = 0 ; i < instances.size() ; i++){
+            if (instances.get(i).getName().equals(name)){
+                showMessageDialog(null, "The Hero exists in one of the Squads");
+                check = true;
+            }
+        }
+        if (!check){
+            instances.add(this);
+        }
     }
 
     public String getYourSquad() {
