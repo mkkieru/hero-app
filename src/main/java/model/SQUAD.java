@@ -42,9 +42,10 @@ public class SQUAD {
         }
         if (!check){
             instances.add(this);
+            instances.get(instances.size()-1).heros.add(hero);
             showMessageDialog(null, "The Squad has been created with the new hero");
         }
-        if (!checkHero){
+        if (check && !checkHero){
             instances.get(instance).heros.add(hero);
             showMessageDialog(null, "The hero has ben added to the squad");
 
