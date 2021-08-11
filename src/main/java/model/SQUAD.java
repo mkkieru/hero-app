@@ -14,17 +14,15 @@ public class SQUAD {
     private int instance ;
 
 
-
-
     public SQUAD(String squadName, Hero hero) {
-        this.squadName = squadName;
+        this.squadName = squadName.toUpperCase();
         this.hero = hero;
         this.id = instances.size();
 
         for (int i = 0; i < instances.size(); i++) {
 
             //if squad entered is existent in instances
-            if (instances.get(i).squadName.equals(squadName)) {//squad1
+            if (instances.get(i).squadName.equals(squadName.toUpperCase().trim())) {//squad1
                 check = true;
                 instance = i;
             }
@@ -52,6 +50,10 @@ public class SQUAD {
     }
     //showMessageDialog(null, "The Hero has been added to the new squad");
 
+
+    public String getSquadName() {
+        return squadName;
+    }
 
     public static ArrayList<SQUAD> getAll() {
         return instances;

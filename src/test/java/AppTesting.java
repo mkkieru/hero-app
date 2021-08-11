@@ -49,4 +49,15 @@ public class AppTesting{
 
     }
 
+    @Test
+    public void getSquadName_displaySquadName_True(){
+        Hero newHero = new Hero("testHero",20,"Flying","Kryptonite","Avengers");
+        SQUAD newSquad = new SQUAD("Avengers",newHero);
+
+        Hero newHero1 = new Hero("testHero1",20,"Flying","Kryptonite","Avengers");
+        SQUAD newSquad1 = new SQUAD("Avengers",newHero1);
+
+        assertEquals("Avengers", newSquad.getSquadName());
+    }
+
 }

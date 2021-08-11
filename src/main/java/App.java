@@ -18,11 +18,12 @@ public class App {
         //get: show all tasks
         get("/", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            ArrayList<Hero> heros = Hero.getAll();
-            model.put("heros", heros);
 
             ArrayList<SQUAD> squads= SQUAD.getAll();
             model.put("squads", squads);
+
+            ArrayList<Hero> heros = Hero.getAll();
+            model.put("heros", heros);
 
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
@@ -42,6 +43,7 @@ public class App {
             String specialPower = req.queryParams("specialPower");
             String weakness = req.queryParams("weakness");
             String yourSquad = req.queryParams("squadName");
+            yourSquad.toUpperCase();
 
             Hero newHero = new Hero(name,age,specialPower,weakness,yourSquad);
 
