@@ -42,6 +42,12 @@ public class App {
             return new ModelAndView(model, "heroForm.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/home", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            res.redirect("/");
+            return null;
+        }, new HandlebarsTemplateEngine());
+
         //task: process new Hero form
         post("/tasks", (req, res) -> { //URL to make new task on POST route
             Map<String, Object> model = new HashMap<>();
@@ -57,7 +63,7 @@ public class App {
 
             SQUAD newSquad = new SQUAD(yourSquad,newHero);
 
-            res.redirect("/");
+            res.redirect("/home");
             return null;
         }, new HandlebarsTemplateEngine());
 
