@@ -1,19 +1,28 @@
 {{#partial "content"}}
     <h1>HERE ARE THE HEROS WE HAVE</h1>
 
-
+    {{#if squads}}
         {{#each squads}}
-            <p>Squad name : {{squadName}}</p>
-            {{#each heros}}
-                <li> Hero name : {{name}}</li>
-            {{/each}}
+                <h1> Squad name : {{ squadName }}</h1>
+                {{#each heros}}
+                    <li> Hero name :<strong> {{ name }} </strong></li>
+                    <li> Hero age : :<strong> {{ age }} </strong></li>
+                    <li> Hero Special Ability : :<strong> {{ specialPower }} </strong></li>
+                    <li> Hero Weakness : :<strong> {{ weakness }} </strong></li>
+
+                    <hr>
+                {{/each}}
+            <hr>
         {{/each}}
 
         <h1>Add heros to view them here</h1>
+
+    {{else}}
         <p>NO HEROS HAVE JOINED US YET !!</p>
 
-    <a href="/form">Add a hero </a>
+    {{/if}}
 
+    <a href="/form">Add a hero </a>
 
     <hr>
 
