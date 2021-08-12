@@ -57,7 +57,7 @@ public class AppTesting{
         Hero newHero1 = new Hero("testHero1",20,"Flying","Kryptonite","Avengers");
         SQUAD newSquad1 = new SQUAD("Avengers",newHero1);
 
-        assertEquals("Avengers", newSquad.getSquadName());
+        assertFalse("Avengers".equals(newSquad.getSquadName()));
     }
 
 }
