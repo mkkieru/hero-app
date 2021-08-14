@@ -63,7 +63,7 @@ public class App {
 
             SQUAD newSquad = new SQUAD(yourSquad,newHero);
 
-            res.redirect("/");
+            res.redirect("/success");
             return null;
         }, new HandlebarsTemplateEngine());
 

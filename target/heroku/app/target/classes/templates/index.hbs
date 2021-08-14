@@ -2,18 +2,23 @@
     <h1>HERE ARE THE HEROS WE HAVE</h1>
 
     {{#if squads}}
-        {{#each squads}}
-                <h1> Squad name : {{ squadName }}</h1>
-                {{#each heros}}
-                    <li> Hero name :<strong> {{ name }} </strong></li>
-                    <li> Hero age : :<strong> {{ age }} </strong></li>
-                    <li> Hero Special Ability : :<strong> {{ specialPower }} </strong></li>
-                    <li> Hero Weakness : :<strong> {{ weakness }} </strong></li>
-
-                    <hr>
-                {{/each}}
-            <hr>
-        {{/each}}
+        <div class="row">
+            {{#each squads}}
+                        <div class="col-md-4">
+                            <h1 style="color:red; text-align: left;">{{ squadName }}</h1>
+                            {{#each heros}}
+                                <div class="card" style="text-align: left;">
+                                    <div class="card-body">
+                                        <h3 class="card-title"> {{ name }} </h3>
+                                        <li> Hero age  :<strong> {{ age }} </strong></li>
+                                        <li> Hero Special Ability :<strong> {{ specialPower }} </strong></li>
+                                        <li> Hero Weakness : :<strong> {{ weakness }} </strong></li>
+                                    </div>
+                                </div>
+                            {{/each}}
+                        </div>
+            {{/each}}
+        </div>
 
         <h1>Add heros to view them here</h1>
 
